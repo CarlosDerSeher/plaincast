@@ -44,6 +44,15 @@ work.
 
     $ bin/plaincast
 
+## Snapcast integration
+
+Snapcast is a multi room audio solution, which can be found at https://github.com/badaix/snapcast, 
+installation instructions for snapcast can be found there too.
+
+I integrated plaincast into my multi room system by instructing MPV to write raw PCM samples to the 
+snapfifo, by default located at /tmp/snapfifo. The format is s16 at 48kHz, I hardcoded these values
+in apps/youtube/mp/mpv.go, I guess there is a better way to do this but I was too lazy to do it.
+
 ## Notes on pytube
 
 I tried using python 2 but had no success with it. To install most recent pytube version use pip3!

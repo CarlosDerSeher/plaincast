@@ -76,6 +76,15 @@ func (mpv *MPV) initialize() (chan State, int) {
 	mpv.setOptionInt("cache-default", 160) // 10 seconds
 	mpv.setOptionInt("cache-seek-min", 16) // 1 second
 
+	// configure mpv to do playback through snapcast server
+	mpv.setOptionString("audio-device", "pcm")
+	mpv.setOptionString("ao-pcm-file", "/tmp/snapfifo")
+	mpv.setOptionString("ao-pcm-waveheader", "no")
+	mpv.setOptionString("ao-pcm-append", "yes")	// this prevents pops on track changes
+	mpv.setOptionString("audio-format", "s16")
+	mpv.setOptionInt("audio-samplerate", 48000)
+
+
 	// Some extra debugging information, but don't read from stdin.
 	// libmpv has a problem with signal handling, though: when `terminal` is
 	// true, Ctrl+C doesn't work correctly anymore and program output is
