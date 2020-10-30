@@ -55,6 +55,9 @@ in apps/youtube/mp/mpv.go, I guess there is a better way to do this but I was to
 
 ## Notes on pytube
 
+Because of youtube_dl beeing awfully slow at fetching stream urls on my raspberry pi 2 I opted 
+for this alternative approach, which works much faster on this low power platform.
+
 I tried using python 2 but had no success with it. To install most recent pytube version use pip3!
     
     $ python3 -m pip install git+https://github.com/nficano/pytube
